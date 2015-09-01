@@ -2,7 +2,7 @@
 
 먼저 액션을 정의해봅시다.
 
-**액션**은 애플리케이션에서 스토어로 보내는 데이터 묶음입니다. 이들이 스토어의 *유일한* 정보원이 됩니다. 여러분은 [`store.dispatch()`](../api/Store.md#dispatch)를 통해 이들을 보낼 수 있습니다.
+**액션**은 애플리케이션에서 스토어로 보내는 데이터 묶음입니다. 이들이 스토어의 **유일한** 정보원이 됩니다. 여러분은 [`store.dispatch()`](../api/Store.md#dispatch)를 통해 이들을 보낼 수 있습니다.
 
 이것이 새 할일의 추가를 나타내는 액션의 예시입니다.
 
@@ -93,7 +93,7 @@ boundAddTodo(text);
 boundCompleteTodo(index);
 ```
 
-`dispatch()` 함수를 스토어에서 [`store.dispatch()`](../api/Store.md#dispatch)로 바로 접근할 수 있지만, 여러분은 보통 [react-redux](http://github.com/gaearon/react-redux)'의 `connect()`와 같은 헬퍼를 통해 접근할 것입니다. 여러 액션 생산자를 `dispatch()`에 바인드하기 위해 `bindActionCreators()`](../api/bindActionCreators.md)를 사용할수도 있습니다.
+`dispatch()` 함수를 스토어에서 [`store.dispatch()`](../api/Store.md#dispatch)로 바로 접근할 수 있지만, 여러분은 보통 [react-redux](http://github.com/gaearon/react-redux)의 `connect()`와 같은 헬퍼를 통해 접근할 것입니다. 여러 액션 생산자를 `dispatch()`에 바인드하기 위해 [`bindActionCreators()`](../api/bindActionCreators.md)를 사용할수도 있습니다.
 
 ## 소스코드
 
