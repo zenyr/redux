@@ -9,7 +9,7 @@
   * [예시(미번역)](/docs/introduction/Examples.md)
 * [기초](/docs/basics/README.md)
   * [액션](/docs/basics/Actions.md)
-  * [리듀서(미번역)](/docs/basics/Reducers.md)
+  * [리듀서](/docs/basics/Reducers.md)
   * [스토어(미번역)](/docs/basics/Store.md)
   * [데이터 흐름(미번역)](/docs/basics/DataFlow.md)
   * [React와 함께 사용하기(미번역)](/docs/basics/UsageWithReact.md)
