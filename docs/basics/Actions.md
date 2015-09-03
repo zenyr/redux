@@ -49,7 +49,7 @@ import { ADD_TODO, REMOVE_TODO } from '../actionTypes';
 
 **액션 생산자**는 액션을 만드는 함수입니다. "액션"과 "액션 생산자"는 혼용하기 쉬운 용어이니 적절하게 사용하도록 신경써야 합니다.
 
-[전통적인 Flux](http://facebook.github.io/flux) 구현에서 액션 생산자는 보통 불러와졌을때 디스패치를 작동시킵니다. 이렇게요:
+[전통적인 Flux](http://facebook.github.io/flux) 구현에서 액션 생산자는 보통 불러와졌을때 액션을 보냅니다. 이렇게요:
 
 ```js
 function addTodoWithDispatch(text) {
@@ -72,14 +72,14 @@ function addTodo(text) {
 }
 ```
 
-이는 액션 생산자를 더 이식하기 좋고 테스트하기 쉽게 합니다. 실제로 디스패치를 시작하려면 결과값을 `dispatch()` 함수에 넘깁니다:
+이는 액션 생산자를 더 이식하기 좋고 테스트하기 쉽게 합니다. 실제로 액션을 보내려면 결과값을 `dispatch()` 함수에 넘깁니다:
 
 ```js
 dispatch(addTodo(text));
 dispatch(completeTodo(index));
 ```
 
-아니면 자동으로 디스패치를 해주는 **바인드된 액션 생산자**를 만듭니다:
+아니면 자동으로 액션을 보내주는 **바인드된 액션 생산자**를 만듭니다:
 
 ```js
 const boundAddTodo = (text) => dispatch(addTodo(text));
@@ -137,7 +137,7 @@ export function setVisibilityFilter(filter) {
 
 ## 다음 단계
 
-이제 이 액션들을 디스패치했을때 상태가 어떻게 변하는지 명시하기 위해 [리듀서를 정의](Reducers.md) 해봅시다! 
+이제 이 액션들을 보냈을 때 상태가 어떻게 변하는지 명시하기 위해 [리듀서를 정의](Reducers.md) 해봅시다! 
 
 >##### 숙련된 사용자들을 위한 한마디
 >여러분이 기본적인 컨셉에 익숙하고 이 튜토리얼을 이미 마치셨다면, [심화 튜토리얼](../advanced/README.md)의 [비동기 액션](../advanced/AsyncActions.md)에서 어떻게 AJAX 응답을 다루고 비동기 흐름에 액션 생산자를 통합하는지 알아보세요.

@@ -62,8 +62,8 @@ function todoApp(state, action) {
     return initialState;
   }
 
-  // For now, don’t handle any actions
-  // and just return the state given to us.
+  // 지금은 아무 액션도 다루지 않고
+  // 주어진 상태를 그대로 반환합니다.
   return state;
 }
 ```
@@ -72,8 +72,8 @@ function todoApp(state, action) {
 
 ```js
 function todoApp(state = initialState, action) {
-  // For now, don’t handle any actions
-  // and just return the state given to us.
+  // 지금은 아무 액션도 다루지 않고
+  // 주어진 상태를 그대로 반환합니다.
   return state;
 }
 ```
@@ -392,4 +392,4 @@ export default todoApp;
 
 ## 다음 단계
 
-다음으로는 상태를 보관하고 액션을 디스패치할때 리듀서를 호출해주는 [Redux 스토어를 만드는 법](Store.md)에 대해 알아보겠습니다.
+다음으로는 상태를 보관하고 액션을 보낼 때 리듀서를 호출해주는 [Redux 스토어를 만드는 법](Store.md)에 대해 알아보겠습니다.
