@@ -1,6 +1,6 @@
 # 스토어
 
-앞의 부분에서 우리는 "무엇이 일어날지"를 나타내는 [액션](Action.md)과 이 액션에 따라 상태를 수정하는 [리듀서](Reducers.md)를 정의했습니다.
+이전 섹션에서 우리는 "무엇이 일어날지"를 나타내는 [액션](Action.md)과 이 액션에 따라 상태를 수정하는 [리듀서](Reducers.md)를 정의했습니다.
 
 **스토어**는 이들을 함께 가져오는 객체입니다. 스토어는 아래와 같은 일들을 해야 합니다:
 
@@ -11,7 +11,7 @@
 
 Redux 애플리케이션에서 단 하나의 스토어만 가질 수 있음을 알아두는것이 중요합니다. 만약 데이터를 다루는 로직을 쪼개고 싶다면, 여러개의 스토어 대신 [리듀서 조합](Reducers.md#splitting-reducers)을 사용할 수 있습니다.
 
-리듀서를 만들었다면 스토어를 만드는건 쉽습니다. [앞부분](Reducers.md)에서 우리는 [`combineReducers()`](../api/combineReducers.md)를 통해 여러 리듀서를 하나로 합쳤습니다. 우리는 이것을 가져와서 [`createStore()`](../api/createStore.md)에 넘길겁니다.
+리듀서를 만들었다면 스토어를 만드는건 쉽습니다. [이전 섹션](Reducers.md)에서 우리는 [`combineReducers()`](../api/combineReducers.md)를 통해 여러 리듀서를 하나로 합쳤습니다. 우리는 이것을 가져와서 [`createStore()`](../api/createStore.md)에 넘길겁니다.
 
 ```js
 import { createStore } from 'redux';

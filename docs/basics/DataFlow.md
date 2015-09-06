@@ -97,7 +97,6 @@ Redux의 아키텍쳐는 **엄격한 일방향 데이터 흐름**을 따라 전�
 ## 다음 단계
 
 이제 Redux가 어떻게 작동하는지 알았으니, [React 앱에 연결](UsageWithReact.md) 해봅시다.
-Now that you know how Redux works, let’s [connect it to a React app](UsageWithReact.md).
 
 >##### 숙련된 사용자들을 위한 한마디
 >여러분이 기본적인 컨셉에 익숙하고 이 튜토리얼을 이미 마치셨다면, [심화 튜토리얼](../advanced/README.md)의 [비동기 흐름](../advanced/AsyncFlow.md)에서 미들웨어가 어떻게 [비동기 액션](../advanced/AsyncActions.md)이 리듀서에 도착하기 전에 이를 변환하는지를 알아보세요.

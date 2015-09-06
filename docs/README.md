@@ -1,7 +1,7 @@
 ## Table of Contents
 
 * [Read Me](/README.md)
-* [소개(미번역)](/docs/introduction/README.md)
+* [소개](/docs/introduction/README.md)
   * [동기(미번역)](/docs/introduction/Motivation.md)
   * [3가지 원칙(미번역)](/docs/introduction/ThreePrinciples.md)
   * [기존 기술들(미번역)](/docs/introduction/PriorArt.md)
@@ -14,14 +14,14 @@
   * [데이터 흐름](/docs/basics/DataFlow.md)
   * [React와 함께 사용하기(미번역)](/docs/basics/UsageWithReact.md)
   * [예시: Todo List(미번역)](/docs/basics/ExampleTodoList.md)
-* [심화(미번역)](/docs/advanced/README.md)
+* [심화](/docs/advanced/README.md)
   * [미들웨어(미번역)](/docs/advanced/Middleware.md)
   * [비동기 액션(미번역)](/docs/advanced/AsyncActions.md)
   * [비동기 흐름(미번역)](/docs/advanced/AsyncFlow.md)
   * React Router와 함께 사용하기
   * [예시: Reddit API(미번역)](/docs/advanced/ExampleRedditAPI.md)
   * 다음 단계
-* [레시피(미번역)](/docs/recipes/README.md)
+* [레시피](/docs/recipes/README.md)
   * [Redux로 마이그레이션(미번역)](/docs/recipes/MigratingToRedux.md)
   * [보일러플레이트 줄이기(미번역)](/docs/recipes/ReducingBoilerplate.md)
   * [서버 렌더링(미번역)](/docs/recipes/ServerRendering.md)
@@ -29,7 +29,7 @@
   * [테스트 작성(미번역)](/docs/recipes/WritingTests.md)
 * [문제해결(미번역)](/docs/Troubleshooting.md)
 * [용어사전(미번역)](/docs/Glossary.md)
-* [API 레퍼런스(미번역)](/docs/api/README.md)
+* [API 레퍼런스](/docs/api/README.md)
   * [createStore(미번역)](/docs/api/createStore.md)
   * [Store(미번역)](/docs/api/Store.md)
   * [combineReducers(미번역)](/docs/api/combineReducers.md)
