@@ -112,20 +112,20 @@ store.dispatch({ type: 'DECREMENT' });
 
 ### 문서
 
-* [소개](http://dobbit.github.io/redux/docs/introduction/index.html)
-* [기초](http://dobbit.github.io/redux/docs/basics/index.html)
-* [심화](http://dobbit.github.io/redux/docs/advanced/index.html)
-* [레시피](http://dobbit.github.io/redux/docs/recipes/index.html)
-* [문제해결](http://dobbit.github.io/redux/docs/Troubleshooting.html)
-* [용어사전](http://dobbit.github.io/redux/docs/Glossary.html)
-* [API 레퍼런스](http://dobbit.github.io/redux/docs/api/index.html)
+* [소개](http://dobbit.github.io/redux/docs_kr/introduction/index.html)
+* [기초](http://dobbit.github.io/redux/docs_kr/basics/index.html)
+* [심화](http://dobbit.github.io/redux/docs_kr/advanced/index.html)
+* [레시피](http://dobbit.github.io/redux/docs_kr/recipes/index.html)
+* [문제해결](http://dobbit.github.io/redux/docs_kr/Troubleshooting.html)
+* [용어사전](http://dobbit.github.io/redux/docs_kr/Glossary.html)
+* [API 레퍼런스](http://dobbit.github.io/redux/docs_kr/api/index.html)
 
 ### 예시
 
-* [Counter](http://dobbit.github.io/redux/docs/introduction/Examples.html#counter) ([source](https://github.com/rackt/redux/tree/master/examples/counter))
-* [TodoMVC](http://dobbit.github.io/redux/docs/introduction/Examples.html#todomvc) ([source](https://github.com/rackt/redux/tree/master/examples/todomvc))
-* [Async](http://dobbit.github.io/redux/docs/introduction/Examples.html#async) ([source](https://github.com/rackt/redux/tree/master/examples/async))
-* [Real World](http://dobbit.github.io/redux/docs/introduction/Examples.html#real-world) ([source](https://github.com/rackt/redux/tree/master/examples/real-world))
+* [Counter](http://dobbit.github.io/redux/docs_kr/introduction/Examples.html#counter) ([source](https://github.com/rackt/redux/tree/master/examples/counter))
+* [TodoMVC](http://dobbit.github.io/redux/docs_kr/introduction/Examples.html#todomvc) ([source](https://github.com/rackt/redux/tree/master/examples/todomvc))
+* [Async](http://dobbit.github.io/redux/docs_kr/introduction/Examples.html#async) ([source](https://github.com/rackt/redux/tree/master/examples/async))
+* [Real World](http://dobbit.github.io/redux/docs_kr/introduction/Examples.html#real-world) ([source](https://github.com/rackt/redux/tree/master/examples/real-world))
 
 만약 여러분이 NPM 생태계가 생소하고 프로젝트를 시작하는데 문제가 있거나 위의 코드를 어디에 붙여넣어야 할지 모르겠다면, Redux를 React와 Browserify와 함께 사용하는 [simplest-redux-example](https://github.com/jackielii/simplest-redux-example)을 참고하세요.
 
