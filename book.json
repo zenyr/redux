@@ -1,7 +1,8 @@
 {
   "gitbook": ">=2.0.0",
 	"structure": {
-  	"summary": "docs/README.md"
+    "readme": "README_kr.md",
+  	"summary": "docs_kr/README.md"
 	},
   "language": "kr"
 }

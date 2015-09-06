@@ -1,10 +1,10 @@
-# API 레퍼런스
+# API Reference
 
-Redux API에서 드러난 부분은 매우 작습니다. Redux는 여러분이 구현해야 하는 몇 가지 계약([리듀서](../Glossary.md#reducer)와 같은)을 정의해두고 계약들을 서로 연결하기 위한 몇 가지 헬퍼 함수들을 제공합니다.
+The Redux API surface is tiny. Redux defines a set of contracts for you to implement (such as [reducers](../Glossary.md#reducer)) and provides a few helper functions to tie these contracts together.
 
-이 섹션은 전체 Redux API 문서입니다. Redux는 상태를 관리하는데에만 관여한다는 사실을 기억해두세요. 실제 앱에서는 [react-redux](https://github.com/gaearon/react-redux)와 같은 UI 바인딩이 필요할겁니다.
+This section documents the complete Redux API. Keep in mind that Redux is only concerned with managing the state. In a real app, you’ll also want to use UI bindings like [react-redux](https://github.com/gaearon/react-redux).
 
-### 최상위 익스포트
+### Top-Level Exports
 
 * [createStore(reducer, [initialState])](createStore.md)
 * [combineReducers(reducers)](combineReducers.md)
@@ -12,7 +12,7 @@ Redux API에서 드러난 부분은 매우 작습니다. Redux는 여러분이 �
 * [bindActionCreators(actionCreators, dispatch)](bindActionCreators.md)
 * [compose(...functions)](compose.md)
 
-### 스토어 API
+### Store API
 
 * [Store](Store.md)
   * [getState()](Store.md#getState)
@@ -20,9 +20,9 @@ Redux API에서 드러난 부분은 매우 작습니다. Redux는 여러분이 �
   * [subscribe(listener)](Store.md#subscribe)
   * [replaceReducer(nextReducer)](Store.md#replaceReducer)
 
-### 임포트
+### Importing
 
-위에 기술된 모든 함수들은 최상위 익스포트에 해당합니다. 임포트하려면:
+Every function described above is a top-level export. You can import any of them like this:
 
 #### ES6
 
