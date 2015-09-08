@@ -1,6 +1,6 @@
-# Example: Todo List
+# 예시: Todo List
 
-This is the complete source code of the tiny todo app we built during the [basics tutorial](./README.md).
+[기초 튜토리얼](./README.md)에서 만들었던 할일 앱의 전체 소스코드입니다.
 
 ## Entry Point
 
@@ -17,8 +17,8 @@ let store = createStore(todoApp);
 
 let rootElement = document.getElementById('root');
 React.render(
-  // The child must be wrapped in a function
-  // to work around an issue in React 0.13.
+  // React 0.13의 이슈를 회피하기 위해 
+  // 반드시 함수로 감싸줍니다.
   <Provider store={store}>
     {() => <App />}
   </Provider>,
@@ -126,7 +126,7 @@ import Footer from '../components/Footer';
 
 class App extends Component {
   render() {
-    // Injected by connect() call:
+    // connect() 호출을 통해 주입됨:
     const { dispatch, visibleTodos, visibilityFilter } = this.props;
     return (
       <div>
@@ -172,8 +172,8 @@ function selectTodos(todos, filter) {
   }
 }
 
-// Which props do we want to inject, given the global state?
-// Note: use https://github.com/faassen/reselect for better performance.
+// 주어진 전역 상태에서 어떤 props를 주입하기를 원하나요?
+// 노트: 더 나은 성능을 위해서는 https://github.com/faassen/reselect 를 사용하세요
 function select(state) {
   return {
     visibleTodos: selectTodos(state.todos, state.visibilityFilter),
@@ -181,7 +181,7 @@ function select(state) {
   };
 }
 
-// Wrap the component to inject dispatch and state into it
+// 디스패치와 상태를 주입하려는 컴포넌트를 감싸줍니다.
 export default connect(select)(App);
 ```
 
