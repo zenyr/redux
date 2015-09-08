@@ -9,7 +9,7 @@
 
 ## React Redux 설치하기
 
-[React bindings](https://github.com/gaearon/react-redux)은 Redux에 기본적으로 포함되어있지는 않습니다. 여러분이 명시적으로 설치해줘야 합니다:
+[React 바인딩](https://github.com/gaearon/react-redux)은 Redux에 기본적으로 포함되어있지는 않습니다. 여러분이 명시적으로 설치해줘야 합니다:
 
 ```
 npm install --save react-redux
@@ -17,7 +17,7 @@ npm install --save react-redux
 
 ## 영민한(Smart) 컴포넌트와 우직한(Dumb) 컴포넌트
 
-Redux용 React 바인딩은 [separating “smart” and “dumb” components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)의 아이디어를 채택했습니다.
+Redux용 React 바인딩은 [“smart” and “dumb” components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)를 분리하는 아이디어를 채택했습니다.
 
 앱의 최상위 컴포넌트(라우트 핸들러같은)만이 Redux와 연관되는 것이 좋습니다. 그 아래의 컴포넌트들은 우직해야 하고 모든 데이터를 props를 통해 전달받아야 합니다.
 
