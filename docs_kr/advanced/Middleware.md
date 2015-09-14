@@ -1,48 +1,49 @@
-# Middleware
+# 미들웨어
 
-If you've used server-side libraries like [Express](http://expressjs.com/) and [Koa](http://koajs.com/), you are familiar with the concept of *middleware*. In these frameworks, middleware is some code you can put between the framework receiving a request, and framework generating a response. For example, Express or Koa middleware may add CORS headers, logging, compression, and more. The best feature of middleware is that it’s composable in a chain. You can use multiple independent third-party middleware in a single project.
+여러분이 [Express](http://expressjs.com/)나 [Koa](http://koajs.com/)같은 서버사이드 라이브러리를 사용하신다면, **미들웨어**라는 컨셉에 익숙하실겁니다. 이들 프레임워크에서 미들웨어는 프레임워크가 요청을 받고 응답을 만드는 사이에 놓을 수 있는 코드입니다. 예를 들어, Express나 Koa 미들웨어는 CORS 헤더를 추가하거나 로깅을 하거나 압축을 하거나 다른 것들도 할 수 있죠. 미들웨어의 가장 좋은 점은 체이닝을 통해 조합 가능하다는 점입니다. 여러분은 하나의 프로젝트에서 여러개의 개별 서드파티 미들웨어들을 사용할 수 있습니다.
 
-Redux middleware solves different problems than Express or Koa middleware, but in a conceptually similar way. **It provides a third-party extension point between dispatching an action, and the moment it reaches the store.** People use Redux middleware for logging, crash reporting, talking to an asynchronous API, routing, and more.
+Redux의 미들웨어는 Express나 Koa와는 다른 문제를 해결하지만 해결방법의 컨셉은 비슷합니다. **미들웨어는 액션을 보내는 순간부터 스토어에 도착하는 순간까지 사이에 서드파티 확장을 사용할 수 있는 지점을 제공합니다.** 여러분은 미들웨어를 로깅이나, 충돌 보고나, 비동기 API와의 통신이나, 라우팅이나 기타 등등에 사용할 수 있습니다.
 
-This article is divided into an in-depth intro to help you grok the concept, and [a few practical examples](#seven-examples) to show the power of middleware at the very end. You may find it helpful to switch back and forth between them, as you flip between feeling bored and inspired.
+이 글은 여러분이 컨셉을 완전히 이해하도록 소개하는 부분과 [몇가지 실용적인 예시](#seven-examples) 부분으로 나뉩니다. 혹시 지루해지거나 와닿는 부분이 있으면 앞뒤로 왔다갔다하면서 보시는 것도 도움이 될겁니다.
 
->##### Note for the Impatient
 
->You will find some practical advice on using middleware for asynchronous actions [in the next section](AsyncActions.md). However we strongly advise you to resist the urge to skip this section.
+>##### 성격 급한 분들을 위한 한마디
 
->Middleware is the most “magical” part of Redux you are likely to encounter. Learning how it works and how to write your own is the best investment you can make into your productivity using Redux.
+>여러분은 [다음 섹션](AsyncActions.md)에서 비동기 액션을 위한 실용적인 미들웨어 사용법에 대해 확인하실 수 있습니다. 하지만 우리는 다음 섹션으로 건너뛰지 않기를 권합니다.
 
->If you’re really impatient, skip ahead to [seven examples](#seven-examples) and come back.
+>미들웨어는 Redux에서 여러분이 만날 가장 "마술적인" 부분입니다. 미들웨어가 어떻게 작동하는지 배우고 직접 작성하는 방법을 배우는 것은 Redux의 생산성을 위한 가장 좋은 투자입니다.
 
-## Understanding Middleware
+>정말 못참겠다면 [일곱가지 예시](#seven-examples)로 넘어갔다가 돌아오세요.
 
-While middleware can be used for a variety of things, including asynchronous API calls, it’s really important that you understand where it comes from. We’ll guide you through the thought process leading to middleware, by using logging and crash reporting as examples.
+## 미들웨어 이해하기
 
-### Problem: Logging
+미들웨어가 비동기 API 호출을 포함해서 여러가지로 쓰일 수 있지만, 이 기능이 어디서 나왔는지 아는 것은 매우 중요합니다. 로깅과 충돌 보고를 예로 들어서 여러분이 미들웨어가 나온 생각의 흐름을 따라갈 수 있도록 이끌어보겠습니다.
 
-One of the benefits of Redux is that it makes state changes predictable and transparent. Every time an action is dispatched, the new state is computed and saved. The state cannot change by itself, it can only change as a consequence of a specific action.
+### 문제: 로깅
 
-Wouldn’t it be nice if we logged every action that happens in the app, together with the state computed after it? When something goes wrong, we can look back at our log, and figure out which action corrupted the state.
+Redux의 장점 중 하나는 상태 변화를 예측가능하고 투명하게 만든다는 점입니다. 액션이 보내질때마다 새 상태가 계산되고 저장됩니다. 상태는 스스로 변할 수 없으며 특정 액션의 결과로만 변경됩니다.
+
+앱에서 일어나는 모든 액션을 이후 계산되는 상태와 묶어서 로깅한다면 멋지지 않을까요? 뭔가 잘못된다면 로그를 들여다보고 어느 액션이 상태를 망쳤는지 확인할 수 있을겁니다.
 
 <img src='http://i.imgur.com/BjGBlES.png' width='70%'>
 
-How do we approach this with Redux?
+Redux에서는 어떻게 접근해야 할까요?
 
-### Attempt #1: Logging Manually
+### 시도 #1: 직접 로깅하기
 
-The most naïve solution is just to log the action and the next state yourself every time you call [`store.dispatch(action)`](../api/Store.md#dispatch). It’s not really a solution, but just a first step towards understanding the problem.
+가장 세련되지 못한 방법은 [`store.dispatch(action)`](../api/Store.md#dispatch)을 호출할때마다 액션과 다음 상태를 직접 로깅하는겁니다. 이건 방법이라고 하기도 어렵고 문제를 이해하기 위한 첫 단계일 뿐이죠.
 
->##### Note
+>##### 한마디
 
->If you’re using [react-redux](https://github.com/gaearon/react-redux) or similar bindings, you likely won’t have direct access to the store instance in your components. For the next few paragraphs, just assume you pass the store down explicitly.
+>여러분이 [react-redux](https://github.com/gaearon/react-redux)나 비슷한 바인딩을 사용한다면 컴포넌트에서 바로 스토어로 접근할 수 없을겁니다. 다음 몇 문단 동안은 여러분이 스토어를 명시적으로 전달했다고 가정하겠습니다.
 
-Say, you call this when creating a todo:
+여러분이 할일을 만들때 이렇게 호출한다고 해봅시다:
 
 ```js
 store.dispatch(addTodo('Use Redux'));
 ```
 
-To log the action and state, you can change it to something like this:
+액션과 상태를 로깅하려면, 이렇게 바꾸면 됩니다:
 
 ```js
 let action = addTodo('Use Redux');
@@ -52,11 +53,11 @@ store.dispatch(action);
 console.log('next state', store.getState());
 ```
 
-This produces the desired effect, but you wouldn’t want to do it every time.
+이렇게 하면 원하던 효과를 얻지만, 이렇게 매번 할 수는 없습니다.
 
-### Attempt #2: Wrapping Dispatch
+### 시도 #2: 디스패치 감싸기
 
-You can extract logging into a function:
+로깅을 함수로 뽑아낼 수 있습니다:
 
 ```js
 function dispatchAndLog(store, action) {
@@ -66,17 +67,17 @@ function dispatchAndLog(store, action) {
 }
 ```
 
-You can then use it everywhere instead of `store.dispatch()`:
+이걸 `store.dispatch()` 대신 어디에나 사용할 수 있습니다:
 
 ```js
 dispatchAndLog(store, addTodo('Use Redux'));
 ```
 
-We could end this here, but it’s not very convenient to import a special function every time.
+이걸로 끝이지만, 매번 특별한 함수를 불러오는건 별로 편리하지 못합니다.
 
-### Attempt #3: Monkeypatching Dispatch
+### Attempt #3: 디스패치 몽키패칭하기
 
-What if we just replace the `dispatch` function on the store instance? The Redux store is just a plain object with [a few methods](../api/Store.md), and we’re writing JavaScript, so we can just monkeypatch the `dispatch` implementation:
+우리가 스토어 인스턴스에 있는 `dispatch` 함수를 대체한다면 어떨까요? Redux의 스토어는 [몇개의 메서드](../api/Store.md)를 가진 평범한 오브젝트일 뿐이고, 우리는 자바스크립트로 작성하고 있으니 `dispatch`구현을 몽키패칭할 수 있습니다:
 
 ```js
 let next = store.dispatch;
@@ -88,19 +89,19 @@ store.dispatch = function dispatchAndLog(action) {
 };
 ```
 
-This is already closer to what we want!  No matter where we dispatch an action, it is guaranteed to be logged. Monkeypatching never feels right, but we can live with this for now.
+벌써 우리가 원하는 수준에 가까워졌습니다! 어디서 액션을 보내건 로깅이 보장됩니다. 몽키패칭이 좋게 느껴지진 않지만, 일단 이렇게 해봅시다.
 
-### Problem: Crash Reporting
+### 문제: 충돌 보고
 
-What if we want to apply **more than one** such transformation to `dispatch`?
+우리가 `dispatch`에 이런 변환을 **두 개 이상** 적용하고 싶다면 어떨까요?
 
-A different useful transformation that comes to my mind is reporting JavaScript errors in production. The global `window.onerror` event is not reliable because it doesn’t provide stack information in some older browsers, which is crucial to understand why an error is happening.
+저에게 떠오르는 다른 쓸만한 변환은 실제 환경에서 자바스크립트 에러를 보고해주는 것입니다. 전역 `window.onerror` 이벤트는 구형 브라우저에서는 스택 정보를 제공하지 않아서 에러가 왜 일어났는지 알기 어렵기 때문에 믿을만하지 못합니다.
 
-Wouldn’t it be useful if, any time an error is thrown as a result of dispatching an action, we would send it to a crash reporting service like [Sentry](https://getsentry.com/welcome/) with the stack trace, the action that caused the error, and the current state? This way it’s much easier to reproduce the error in development.
+액션을 보내서 에러가 날 때마다 스택 추적과 에러를 일으킨 액션과 현재 상태를 [Sentry](https://getsentry.com/welcome/) 같은 충돌 보고 서비스에 보내준다면 쓸만하지 않을까요? 이를 통해 에러를 개발 환경에서 재현하기 쉬워질겁니다.
 
-However, it is important that we keep logging and crash reporting separate. Ideally we want them to be different modules, potentially in different packages. Otherwise we can’t have an ecosystem of such utilities. (Hint: we’re slowly getting to what middleware is!)
+하지만 로깅과 충돌 보고를 분리된채로 유지하는 것은 중요합니다. 이상적으로는 이들을 서로 다른 모듈로 하고, 어쩌면 다른 패키지에 두었으면 합니다. 그러지 않으면 이런 유틸리티들로 이루어진 생태계를 가질 수 없겠죠. (힌트: 우리는 점차 미들웨어가 무엇인지에 가까워지고 있습니다!)
 
-If logging and crash reporting are separate utilities, they might look like this:
+만약 로깅과 충돌 보고가 분리된 유틸리티라면, 이런 식으로 보일겁니다:
 
 ```js
 function patchStoreToAddLogging(store) {
@@ -132,18 +133,18 @@ function patchStoreToAddCrashReporting(store) {
 }
 ```
 
-If these functions are published as separate modules, we can later use them to patch our store:
+이들 함수를 분리된 모듈로 내놓을 수 있다면, 나중에 다시 스토어에 적용할 수 있습니다:
 
 ```js
 patchStoreToAddLogging(store);
 patchStoreToAddCrashReporting(store);
 ```
 
-Still, this isn’t nice.
+아직 별로 좋지 않네요.
 
-### Attempt #4: Hiding Monkeypatching
+### 시도 #4: 몽키패칭 숨기기
 
-Monkeypatching is a hack. “Replace any method you like”, what kind of API is that? Let’s figure out the essence of it instead. Previously, our functions replaced `store.dispatch`. What if they *returned* the new `dispatch` function instead?
+몽키패칭은 임시방편입니다. "여러분이 원하는 메서드를 대체합니다", 이런 API가 어딨나요? 대신 핵심이 뭔지 알아봅시다. 앞에서 우리는 `store.dispatch`를 대체했습니다. 만약 새 `dispatch` 함수를 **반환**한다면 어떨까요? 
 
 ```js
 function logger(store) {
@@ -160,8 +161,7 @@ function logger(store) {
   };
 }
 ```
-
-We could provide a helper inside Redux that would apply the actual monkeypatching as an implementation detail:
+Redux 안에 실제 몽키패칭을 적용할 수 있게 돕는 핼퍼를 제공할 수 있습니다:
 
 ```js
 function applyMiddlewareByMonkeypatching(store, middlewares) {
@@ -175,18 +175,18 @@ function applyMiddlewareByMonkeypatching(store, middlewares) {
 }
 ```
 
-We could use it to apply multiple middleware like this:
+여러 미들웨어를 적용할때는 이렇게 사용하면 됩니다:
 
 ```js
 applyMiddlewareByMonkeypatching(store, [logger, crashReporter]);
 ```
 
-However, it is still monkeypatching.  
-The fact that we hide it inside the library doesn’t alter this fact.
+하지만 이건 아직 몽키패칭이죠.
+라이브러리 안에 숨긴다고 해서 이 사실이 변하지는 않습니다.
 
-### Attempt #5: Removing Monkeypatching
+### 시도 #5: 몽키패칭 제거하기
 
-Why do we even overwrite `dispatch`? Of course, to be able to call it later, but there’s also another reason: so that every middleware can access (and call) the previously wrapped `store.dispatch`:
+왜 우리는 `dispatch`를 덮어씌워야 하죠? 물론, 나중에 호출하기 위해서이지만 다른 이유도 있습니다: 그래야 모든 미들웨어들이 이전에 감싸진 `store.dispatch`에 접근(하고 호출)할 수 있기 때문이죠:
 
 ```js
 function logger(store) {
@@ -202,11 +202,11 @@ function logger(store) {
 }
 ```
 
-It is essential to chaining middleware!
+이게 미들웨어 체이닝의 핵심입니다!
 
-If `applyMiddlewareByMonkeypatching` doesn’t assign `store.dispatch` immediately after processing the first middleware, `store.dispatch` will keep pointing to the original `dispatch` function. Then the second middleware will also be bound to the original `dispatch` function.
+첫 번째 미들웨어 처리가 끝나고 바로 `applyMiddlewareByMonkeypatching`를 `store.dispatch`에 할당하지 않는다면, `store.dispatch`는 여전히 원래의 `dispatch`함수를 가리키고 있을겁니다. 그러면 두번째 미들웨어 또한 원래의 `dispatch` 함수에 바인딩될 수 있겠죠.
 
-But there’s also a different way to enable chaining. The middleware could accept the `next()` dispatch function as a parameter instead of reading it from the `store` instance.
+하지만 체이닝을 가능하게 하는 다른 방법이 있습니다. 미들웨어가 `next()` 디스패치 함수를 `store` 인스턴스에서 읽어오는 대신 인자로 받을 수 있습니다.
 
 ```js
 function logger(store) {
@@ -221,7 +221,7 @@ function logger(store) {
 }
 ```
 
-It’s a [“we need to go deeper”](http://knowyourmeme.com/memes/we-need-to-go-deeper) kind of moment, so it might take a while for this to make sense. The function cascade feels intimidating. ES6 arrow functions make this [currying](https://en.wikipedia.org/wiki/Currying) easier on eyes:
+이건 일종의 [“we need to go deeper”](http://knowyourmeme.com/memes/we-need-to-go-deeper)여서 이해하는데 좀 걸립니다. 이렇게 함수가 늘어서있으면 겁먹게 되죠. ES6의 화살표 함수가 이 [커링](https://en.wikipedia.org/wiki/Currying)을 더 알아보기 쉽게 만듭니다:
 
 ```js
 const logger = store => next => action => {
@@ -247,17 +247,17 @@ const crashReporter = store => next => action => {
 }
 ```
 
-**This is exactly what Redux middleware looks like.**
+**이게 바로 Redux의 미들웨어가 생긴 모양입니다.**
 
-Now middleware takes the `next()` dispatch function, and returns a dispatch function, which in turn serves as `next()` to the middleware to the left, and so on. It’s still useful to have access to some store methods like `getState()`, so `store` stays available as the top-level argument.
+이제 미들웨어는 `next()` 디스패치 함수를 받아서, 디스패치 함수를 반환하고, 이는 다시 왼쪽의 미들웨어에 `next()`로 전달되고, 이런 식으로 계속됩니다. 스토어의 `getState()` 같은 메서드에 접근할 수 있으면 유용하기 때문에 `store`는 계속 최상위 인수로 남아있습니다.
 
-### Attempt #6: Naïvely Applying the Middleware
+### 시도 #6: 적당히 미들웨어 적용하기 
 
-Instead of `applyMiddlewareByMonkeypatching()`, we could write `applyMiddleware()` that first obtains the final, fully wrapped `dispatch()` function, and returns a copy of the store using it:
+`applyMiddlewareByMonkeypatching()` 대신, 완전히 감싸여진 `dispatch()` 함수를 가지고 스토어의 복사본을 반환하는 `applyMiddleware()`를 작성할 수 있습니다:
 
 ```js
-// Warning: Naïve implementation!
-// That's *not* Redux API.
+// 주의: 적당히 구현함!
+// Redux API가 **아님**.
 
 function applyMiddleware(store, middlewares) {
   middlewares = middlewares.slice();
@@ -272,18 +272,17 @@ function applyMiddleware(store, middlewares) {
 }
 ```
 
-The implementation of [`applyMiddleware()`](../api/applyMiddleware.md) that ships with Redux is similar, but **different in three important aspects**:
+Redux에 포함되어 나오는 [`applyMiddleware()`](../api/applyMiddleware.md) 구현은 비슷하지만 **세 가지 중요한 면에서 다릅니다**:
 
-* It only exposes a subset of the [store API](../api/Store.md) to the middleware: [`dispatch(action)`](../api/Store.md#dispatch) and [`getState()`](../api/Store.
-md#getState).
+* [store API](../api/Store.md)의 일부만을 미들웨어에 노출합니다: [`dispatch(action)`](../api/Store.md#dispatch) 와 [`getState()`](../api/Store.md#getState).
 
-* It does a bit of trickery to make sure that if you call `store.dispatch(action)` from your middleware instead of `next(action)`, the action will actually travel the whole middleware chain again, including the current middleware. This is useful for asynchronous middleware, as we will see [later](AsyncActions.md).
+* 여러분이 미들웨어 안에서 `next(action)`대신 `store.dispatch(action)`를 호출할 경우 액션이 현재 미들웨어를 포함한 전체 미들웨어 체인을 다시 따라가도록 꼼수를 써뒀습니다. 이건 [나중에](AsyncActions.md) 볼 비동기 미들웨어에서 유용합니다.
 
-* To ensure that you may only apply middleware once, it operates on `createStore()` rather than on `store` itself. Instead of `(store, middlewares) => store`, its signature is `(...middlewares) => (createStore) => createStore`.
+* 여러분이 미들웨어를 한번만 적용했는지 확인하기 위해, `store` 자체보다는 `createStore()`상에서 작동합니다. 그래서 용법은 `(store, middlewares) => store` 대신 `(...middlewares) => (createStore) => createStore`입니다.
 
-### The Final Approach
+### 최종적인 접근
 
-Given this middleware we just wrote:
+우리가 방금 작성한 미들웨어는 아래와 같습니다:
 
 ```js
 const logger = store => next => action => {
@@ -309,7 +308,7 @@ const crashReporter = store => next => action => {
 }
 ```
 
-Here’s how to apply it to a Redux store:
+이것을 Redux 스토어에 이렇게 적용합니다:
 
 ```js
 import { createStore, combineReducers, applyMiddleware } from 'redux';
@@ -323,22 +322,22 @@ let todoApp = combineReducers(reducers);
 let store = createStoreWithMiddleware(todoApp);
 ```
 
-That’s it! Now any actions dispatched to the store instance will flow through `logger` and `crashReporter`:
+됐습니다! 이제 스토어 인스턴스로 전달되는 모든 액션은 `logger`와 `crashReporter`를 지납니다:
 
 ```js
 // Will flow through both logger and crashReporter middleware!
 store.dispatch(addTodo('Use Redux'));
 ```
 
-## Seven Examples
+## 일곱가지 예시
 
-If your head boiled from reading the above section, imagine what it was like to write it. This section is meant to be a relaxation for you and me, and will help get your gears turning.
+여러분이 위의 섹션을 읽으면서 머리가 터질 것 같았다면, 우리가 작성하려 했던 것이 무엇인지 떠올려보세요. 이 섹션이 여러분과 저를 쉬게 하는 동시에 여러분이 더 잘 이해하게 도울겁니다.
 
-Each function below is a valid Redux middleware. They are not equally useful, but at least they are equally fun.
+아래의 각각의 함수는 유효한 Redux 미들웨어입니다. 전부 똑같이 유용하진 않지만, 다들 재미있을겁니다.
 
 ```js
 /**
- * Logs all actions and states after they are dispatched.
+ * 모든 액션과 전달된 후의 상태를 로깅합니다.
  */
 const logger = store => next => action => {
   console.group(action.type);
@@ -350,7 +349,7 @@ const logger = store => next => action => {
 };
 
 /**
- * Sends crash reports as state is updated and listeners are notified.
+ * 상태가 변경되고 리스너가 알림을 받을때마다 충돌 보고를 보냅니다.
  */
 const crashReporter = store => next => action => {
   try {
@@ -368,8 +367,8 @@ const crashReporter = store => next => action => {
 }
 
 /**
- * Schedules actions with { meta: { delay: N } } to be delayed by N milliseconds.
- * Makes `dispatch` return a function to cancel the interval in this case.
+ * 액션을 { meta: { delay: N } }에 따라 N 밀리초만큼 지연시킵니다.
+ * 이 경우 `dispatch`가 함수를 반환해서 취소할 수 있게 합니다.
  */
 const timeoutScheduler = store => next => action => {
   if (!action.meta || !action.meta.delay) {
@@ -387,8 +386,8 @@ const timeoutScheduler = store => next => action => {
 };
 
 /**
- * Schedules actions with { meta: { raf: true } } to be dispatched inside a rAF loop frame.
- * Makes `dispatch` return a function to remove the action from queue in this case.
+ * 액션을 { meta: { raf: true } }일 경우 한 rAF 프레임만큼 지연시킵니다.
+ * 이 경우 `dispatch`가 함수를 반환해서 취소할 수 있게 합니다.
  */
 const rafScheduler = store => next => {
   let queuedActions = [];
@@ -426,9 +425,9 @@ const rafScheduler = store => next => {
 };
 
 /**
- * Lets you dispatch promises in addition to actions.
- * If the promise is resolved, its result will be dispatched as an action.
- * The promise is returned from `dispatch` so the caller may handle rejection.
+ * 액션에 더해 약속(promise)를 보낼 수 있게 합니다.
+ * 약속이 해결되면, 그 결과가 액션으로써 보내집니다.
+ * 약속은 `dispatch`에서 반환되므로 호출자가 거부를 처리할 수 있습니다.
  */
 const vanillaPromise = store => next => action => {
   if (typeof action.then !== 'function') {
@@ -439,12 +438,12 @@ const vanillaPromise = store => next => action => {
 };
 
 /**
- * Lets you dispatch special actions with a { promise } field.
+ * { promise } 필드를 통해 특별한 액션들을 보낼 수 있게 합니다.
  *
- * This middleware will turn them into a single action at the beginning,
- * and a single success (or failure) action when the `promise` resolves.
+ * 이 미들웨어는 처음에 액션들을 하나의 액션으로 바꾸고,
+ * `promise`가 해결되면 하나의 성공(또는 실패) 액션을 보냅니다.
  *
- * For convenience, `dispatch` will return the promise so the caller can wait.
+ * 편의를 위해, `dispatch`는 호출자가 기다릴 수 있게 약속을 반환합니다.
  */
 const readyStatePromise = store => next => action => {
   if (!action.promise) {
@@ -465,13 +464,13 @@ const readyStatePromise = store => next => action => {
 };
 
 /**
- * Lets you dispatch a function instead of an action.
- * This function will receive `dispatch` and `getState` as arguments.
+ * 액션 대신 함수를 보낼 수 있게 합니다.
+ * 이 함수는 `dispatch`와 `getState`를 인수로 받습니다.
  *
- * Useful for early exits (conditions over `getState()`), as well
- * as for async control flow (it can `dispatch()` something else).
+ * (`getState()`의 조건에 따른) 이른 종료나 
+ * 비동기 흐름 제어에 유용합니다(다른것들을 `dispatch()`할 수 있습니다).
  *
- * `dispatch` will return the return value of the dispatched function.
+ * `dispatch`는 보내진 함수의 반환값을 반환합니다.
  */
 const thunk = store => next => action =>
   typeof action === 'function' ?
@@ -479,7 +478,7 @@ const thunk = store => next => action =>
     next(action);
 
 
-// You can use all of them! (It doesn’t mean you should.)
+// 이들 전부를 함께 사용할 수 있습니다!(그래야 한다는 뜻은 아닙니다.)
 let createStoreWithMiddleware = applyMiddleware(
   rafScheduler,
   timeoutScheduler,
