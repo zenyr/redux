@@ -1,0 +1,1113 @@
+<!DOCTYPE HTML>
+<html lang="kr" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>React와 함께 사용하기 | Redux</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.3.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-edit-link/plugin.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../../docs_kr/basics/ExampleTodoList.html" />
+    
+    
+    <link rel="prev" href="../../docs_kr/basics/DataFlow.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="3.5" data-basepath="../.." data-revision="Mon Sep 14 2015 15:36:31 GMT+0900 (KST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="검색어 입력" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        소개
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Read Me
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="docs_kr/introduction/index.html">
+            
+                
+                    <a href="../../docs_kr/introduction/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        소개
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="docs_kr/introduction/Motivation.html">
+            
+                
+                    <a href="../../docs_kr/introduction/Motivation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        동기(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="docs_kr/introduction/ThreePrinciples.html">
+            
+                
+                    <a href="../../docs_kr/introduction/ThreePrinciples.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        3가지 원칙(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="docs_kr/introduction/PriorArt.html">
+            
+                
+                    <a href="../../docs_kr/introduction/PriorArt.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        기존 기술들(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="docs_kr/introduction/Ecosystem.html">
+            
+                
+                    <a href="../../docs_kr/introduction/Ecosystem.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        생태계(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="docs_kr/introduction/Examples.html">
+            
+                
+                    <a href="../../docs_kr/introduction/Examples.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        예시(미번역)
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="docs_kr/basics/index.html">
+            
+                
+                    <a href="../../docs_kr/basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        기초
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="docs_kr/basics/Actions.html">
+            
+                
+                    <a href="../../docs_kr/basics/Actions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        액션
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="docs_kr/basics/Reducers.html">
+            
+                
+                    <a href="../../docs_kr/basics/Reducers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        리듀서
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="docs_kr/basics/Store.html">
+            
+                
+                    <a href="../../docs_kr/basics/Store.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        스토어
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="docs_kr/basics/DataFlow.html">
+            
+                
+                    <a href="../../docs_kr/basics/DataFlow.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        데이터 흐름
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.5" data-path="docs_kr/basics/UsageWithReact.html">
+            
+                
+                    <a href="../../docs_kr/basics/UsageWithReact.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        React와 함께 사용하기
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="docs_kr/basics/ExampleTodoList.html">
+            
+                
+                    <a href="../../docs_kr/basics/ExampleTodoList.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        예시: Todo List
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="docs_kr/advanced/index.html">
+            
+                
+                    <a href="../../docs_kr/advanced/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        심화
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="docs_kr/advanced/Middleware.html">
+            
+                
+                    <a href="../../docs_kr/advanced/Middleware.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        미들웨어
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="docs_kr/advanced/AsyncActions.html">
+            
+                
+                    <a href="../../docs_kr/advanced/AsyncActions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        비동기 액션(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="docs_kr/advanced/AsyncFlow.html">
+            
+                
+                    <a href="../../docs_kr/advanced/AsyncFlow.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        비동기 흐름(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" >
+            
+            <span><b>4.4.</b> React Router와 함께 사용하기</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="docs_kr/advanced/ExampleRedditAPI.html">
+            
+                
+                    <a href="../../docs_kr/advanced/ExampleRedditAPI.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        예시: Reddit API(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" >
+            
+            <span><b>4.6.</b> 다음 단계</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="docs_kr/recipes/index.html">
+            
+                
+                    <a href="../../docs_kr/recipes/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        레시피
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="docs_kr/recipes/MigratingToRedux.html">
+            
+                
+                    <a href="../../docs_kr/recipes/MigratingToRedux.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Redux로 마이그레이션(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="docs_kr/recipes/ReducingBoilerplate.html">
+            
+                
+                    <a href="../../docs_kr/recipes/ReducingBoilerplate.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        보일러플레이트 줄이기(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="docs_kr/recipes/ServerRendering.html">
+            
+                
+                    <a href="../../docs_kr/recipes/ServerRendering.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        서버 렌더링(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="docs_kr/recipes/ComputingDerivedData.html">
+            
+                
+                    <a href="../../docs_kr/recipes/ComputingDerivedData.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        파생된 데이터 다루기(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="docs_kr/recipes/WritingTests.html">
+            
+                
+                    <a href="../../docs_kr/recipes/WritingTests.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        테스트 작성(미번역)
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="docs_kr/Troubleshooting.html">
+            
+                
+                    <a href="../../docs_kr/Troubleshooting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        문제해결(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="docs_kr/Glossary.html">
+            
+                
+                    <a href="../../docs_kr/Glossary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        용어사전(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="docs_kr/api/index.html">
+            
+                
+                    <a href="../../docs_kr/api/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        API 레퍼런스
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="docs_kr/api/createStore.html">
+            
+                
+                    <a href="../../docs_kr/api/createStore.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        createStore(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="docs_kr/api/Store.html">
+            
+                
+                    <a href="../../docs_kr/api/Store.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Store(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="docs_kr/api/combineReducers.html">
+            
+                
+                    <a href="../../docs_kr/api/combineReducers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        combineReducers(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="docs_kr/api/applyMiddleware.html">
+            
+                
+                    <a href="../../docs_kr/api/applyMiddleware.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        applyMiddleware(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="docs_kr/api/bindActionCreators.html">
+            
+                
+                    <a href="../../docs_kr/api/bindActionCreators.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        bindActionCreators(미번역)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="docs_kr/api/compose.html">
+            
+                
+                    <a href="../../docs_kr/api/compose.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        compose(미번역)
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="PATRONS.html">
+            
+                
+                    <a href="../../PATRONS.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        후원자(미번역)
+                    </a>
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                에 게시 GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="차례"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="수색"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="글꼴 설정"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">화이트</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">밤</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="몫"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    공유 Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    공유 Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    공유 Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    공유 Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    공유 Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >Redux</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <a id="edit-link" href="https://github.com/dobbit/redux/tree/master/docs_kr/basics/UsageWithReact.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="react%EC%99%80-%ED%95%A8%EA%BB%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0">React&#xC640; &#xD568;&#xAED8; &#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h1>
+<p>&#xCC98;&#xC74C; &#xC2DC;&#xC791;&#xD560;&#xB54C;&#xBD80;&#xD130; &#xC6B0;&#xB9AC;&#xB294; Redux&#xAC00; React&#xC640;&#xB294; &#xAD00;&#xACC4;&#xAC00; &#xC5C6;&#xC74C;&#xC744; &#xAC15;&#xC870;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC5EC;&#xB7EC;&#xBD84;&#xC740; Redux &#xC571;&#xC744; React, Angular, Ember, jQuery, &#xC21C;&#xC218; JavaScript&#xC640; &#xD568;&#xAED8; &#xB9CC;&#xB4E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xADF8;&#xB807;&#xAE34; &#xD558;&#xC9C0;&#xB9CC; Redux&#xB294; &#xC561;&#xC158;&#xC5D0; &#xBC18;&#xC751;&#xD558;&#xC5EC; &#xC0C1;&#xD0DC;&#xB97C; &#xBCC0;&#xACBD;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;, <a href="http://facebook.github.io/react/" target="_blank">React</a>&#xB098; <a href="https://github.com/dekujs/deku" target="_blank">Deku</a>&#xC640; &#xAC19;&#xC774; UI&#xB97C; &#xC0C1;&#xD0DC;&#xC5D0; &#xB300;&#xD55C; &#xD568;&#xC218;&#xB85C; &#xAE30;&#xC220;&#xD558;&#xB294; &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C;&#xC640; &#xD2B9;&#xD788; &#xC798; &#xC5B4;&#xC6B8;&#xB9BD;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC6B0;&#xB9AC;&#xC758; &#xAC04;&#xB2E8;&#xD55C; &#xD560;&#xC77C; &#xC571;&#xC744; React&#xB85C; &#xB9CC;&#xB4E4;&#xC5B4; &#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h2 id="react-redux-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0">React Redux &#xC124;&#xCE58;&#xD558;&#xAE30;</h2>
+<p><a href="https://github.com/gaearon/react-redux" target="_blank">React &#xBC14;&#xC778;&#xB529;</a>&#xC740; Redux&#xC5D0; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD3EC;&#xD568;&#xB418;&#xC5B4;&#xC788;&#xC9C0;&#xB294; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC5EC;&#xB7EC;&#xBD84;&#xC774; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C; &#xC124;&#xCE58;&#xD574;&#xC918;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;:</p>
+<pre><code>npm install --save react-redux
+</code></pre><h2 id="%EC%98%81%EB%AF%BC%ED%95%9C-smart-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%99%80-%EC%9A%B0%EC%A7%81%ED%95%9C-dumb-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8">&#xC601;&#xBBFC;&#xD55C;(Smart) &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xC640; &#xC6B0;&#xC9C1;&#xD55C;(Dumb) &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;</h2>
+<p>Redux&#xC6A9; React &#xBC14;&#xC778;&#xB529;&#xC740; <a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0" target="_blank">&#x201C;smart&#x201D; and &#x201C;dumb&#x201D; components</a>&#xB97C; &#xBD84;&#xB9AC;&#xD558;&#xB294; &#xC544;&#xC774;&#xB514;&#xC5B4;&#xB97C; &#xCC44;&#xD0DD;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC571;&#xC758; &#xCD5C;&#xC0C1;&#xC704; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;(&#xB77C;&#xC6B0;&#xD2B8; &#xD578;&#xB4E4;&#xB7EC;&#xAC19;&#xC740;)&#xB9CC;&#xC774; Redux&#xC640; &#xC5F0;&#xAD00;&#xB418;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8; &#xC544;&#xB798;&#xC758; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB4E4;&#xC740; &#xC6B0;&#xC9C1;&#xD574;&#xC57C; &#xD558;&#xACE0; &#xBAA8;&#xB4E0; &#xB370;&#xC774;&#xD130;&#xB97C; props&#xB97C; &#xD1B5;&#xD574; &#xC804;&#xB2EC;&#xBC1B;&#xC544;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th scope="col" style="text-align:left">&#xC601;&#xBBFC;&#xD55C; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;</th>
+            <th scope="col" style="text-align:left">&#xC6B0;&#xC9C1;&#xD55C; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <th scope="row" style="text-align:right">&#xC704;&#xCE58;</th>
+          <td>&#xCD5C;&#xC0C1;&#xC704;, &#xB77C;&#xC6B0;&#xD2B8; &#xD578;&#xB4E4;&#xB7EC;</td>
+          <td>&#xC911;&#xAC04;&#xACFC; &#xB9D0;&#xB2E8; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;</td>
+        </tr>
+        <tr>
+          <th scope="row" style="text-align:right">Redux&#xC640; &#xC5F0;&#xAD00;&#xB428;</th>
+          <td>&#xC608;
+          </td><td>&#xC544;&#xB2C8;&#xC624;
+        </td></tr>
+        <tr>
+          <th scope="row" style="text-align:right">&#xB370;&#xC774;&#xD130;&#xB97C; &#xC77D;&#xAE30; &#xC704;&#xD574;</th>
+          <td>Redux &#xC0C1;&#xD0DC;&#xB97C; &#xAD6C;&#xB3C5;</td>
+          <td>props&#xC5D0;&#xC11C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC77D;&#xC74C;</td>
+        </tr>
+        <tr>
+          <th scope="row" style="text-align:right">&#xB370;&#xC774;&#xD130;&#xB97C; &#xBC14;&#xAFB8;&#xAE30; &#xC704;&#xD574;</th>
+          <td>Redux &#xC561;&#xC158;&#xC744; &#xBCF4;&#xB0C4;</td>
+          <td>props&#xC5D0;&#xC11C; &#xCF5C;&#xBC31;&#xC744; &#xBD80;&#xB984;</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>&#xC774; &#xD560;&#xC77C; &#xC571;&#xC5D0;&#xC11C;&#xB294; &#xBDF0; &#xACC4;&#xCE35;&#xC758; &#xCD5C;&#xC0C1;&#xB2E8;&#xC5D0; &#xD558;&#xB098;&#xC758; &#xC601;&#xBBFC;&#xD55C; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB9CC;&#xC744; &#xB450;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB354; &#xBCF5;&#xC7A1;&#xD55C; &#xC571;&#xC5D0;&#xC11C;&#xB294; &#xC5EC;&#xB7EC;&#xAC1C;&#xB97C; &#xB458; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC601;&#xBBFC;&#xD55C; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB97C; &#xC911;&#xCCA9;&#xC2DC;&#xD0AC;&#xC218;&#xB3C4; &#xC788;&#xC9C0;&#xB9CC;, &#xAC00;&#xB2A5;&#xD558;&#xBA74; props&#xB9CC; &#xB0B4;&#xB824;&#xC8FC;&#xB294; &#xAC83;&#xC744; &#xAD8C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h2 id="%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EA%B3%84%EC%B8%B5%EC%9D%84-%EC%84%A4%EA%B3%84%ED%95%98%EA%B8%B0">&#xCEF4;&#xD3EC;&#xB10C;&#xD2B8; &#xACC4;&#xCE35;&#xC744; &#xC124;&#xACC4;&#xD558;&#xAE30;</h2>
+<p>&#xC6B0;&#xB9AC;&#xAC00; &#xC5B4;&#xB5BB;&#xAC8C; <a href="Reducers.html">&#xB8E8;&#xD2B8; &#xC0C1;&#xD0DC; &#xAC1D;&#xCCB4;&#xC758; &#xD615;&#xD0DC;&#xB97C; &#xC124;&#xACC4;</a>&#xD588;&#xB294;&#xC9C0; &#xAE30;&#xC5B5;&#xD558;&#xC2DC;&#xB098;&#xC694;? &#xC774;&#xC81C; &#xADF8;&#xC5D0; &#xB9DE;&#xAC8C; UI &#xACC4;&#xCE35;&#xC744; &#xC124;&#xACC4;&#xD558;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; Redux&#xC5D0;&#xB9CC; &#xD55C;&#xC815;&#xB41C; &#xC77C;&#xC740; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;. <a href="https://facebook.github.io/react/docs/thinking-in-react.html" target="_blank">Thinking in React</a>&#xB294; &#xC774; &#xACFC;&#xC815;&#xC744; &#xC124;&#xBA85;&#xD558;&#xB294; &#xC88B;&#xC740; &#xD29C;&#xD1A0;&#xB9AC;&#xC5BC;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC6B0;&#xB9AC;&#xC758; &#xC124;&#xACC4;&#xB97C; &#xC694;&#xC57D;&#xD558;&#xBA74; &#xAC04;&#xB2E8;&#xD569;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xB294; &#xD560;&#xC77C; &#xBAA9;&#xB85D;&#xC744; &#xBCF4;&#xC5EC;&#xC904;&#xAC81;&#xB2C8;&#xB2E4;. &#xD560;&#xC77C;&#xC744; &#xD074;&#xB9AD;&#xD558;&#xBA74; &#xC644;&#xB8CC;&#xD55C; &#xAC83;&#xC73C;&#xB85C; &#xD45C;&#xC2DC;&#xB429;&#xB2C8;&#xB2E4;. &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xD560;&#xC77C;&#xC744; &#xCD94;&#xAC00;&#xD560; &#xD544;&#xB4DC;&#xB3C4; &#xBCF4;&#xC5EC;&#xC918;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xD478;&#xD130;&#xC5D0;&#xB294; &#xBAA8;&#xB4E0; &#xD560;&#xC77C;&#xC744; &#xBCF4;&#xC5EC;&#xC8FC;&#xAC70;&#xB098; / &#xC644;&#xB8CC;&#xB41C; &#xD560;&#xC77C;&#xB9CC; &#xBCF4;&#xC5EC;&#xC8FC;&#xAC70;&#xB098; / &#xC644;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xD560;&#xC77C;&#xB9CC; &#xBCF4;&#xC5EC;&#xC8FC;&#xB294; &#xD1A0;&#xAE00;&#xC744; &#xB193;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC774; &#xC694;&#xC57D;&#xC5D0;&#xC11C; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC740; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;(&#xC640; &#xADF8; props)&#xB97C; &#xB04C;&#xC5B4;&#xB0BC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<ul>
+<li><strong><code>AddTodo</code></strong>&#xB294; &#xBC84;&#xD2BC;&#xC774; &#xB2EC;&#xB9B0; &#xC785;&#xB825; &#xD544;&#xB4DC;&#xC785;&#xB2C8;&#xB2E4;.<ul>
+<li><code>onAddClick(text: string)</code>&#xC740; &#xBC84;&#xD2BC;&#xC744; &#xB204;&#xB974;&#xBA74; &#xBD88;&#xB7EC;&#xC62C; &#xCF5C;&#xBC31;&#xC785;&#xB2C8;&#xB2E4;.</li>
+</ul>
+</li>
+<li><strong><code>TodoList</code></strong>&#xB294; &#xD45C;&#xC2DC;&#xC911;&#xC778; &#xD560;&#xC77C; &#xBAA9;&#xB85D;&#xC785;&#xB2C8;&#xB2E4;.<ul>
+<li><code>todos: Array</code>&#xB294; <code>{ text, completed }</code> &#xD615;&#xD0DC;&#xC758; &#xD560;&#xC77C; &#xBC30;&#xC5F4;&#xC785;&#xB2C8;&#xB2E4;.</li>
+<li><code>onTodoClick(index: number)</code>&#xC740; &#xD560;&#xC77C;&#xC744; &#xB204;&#xB974;&#xBA74; &#xD638;&#xCD9C;&#xD560; &#xCF5C;&#xBC31;&#xC785;&#xB2C8;&#xB2E4;.</li>
+</ul>
+</li>
+<li><strong><code>Todo</code></strong>&#xB294; &#xD560;&#xC77C; &#xD558;&#xB098;&#xC785;&#xB2C8;&#xB2E4;.<ul>
+<li><code>text: string</code>&#xC740; &#xBCF4;&#xC5EC;&#xC904; &#xD14D;&#xC2A4;&#xD2B8;&#xC785;&#xB2C8;&#xB2E4;.</li>
+<li><code>completed: boolean</code>&#xC740; &#xD560;&#xC77C;&#xC744; &#xC644;&#xB8CC;&#xB41C;&#xAC83;&#xC73C;&#xB85C; &#xD45C;&#xC2DC;&#xD560;&#xC9C0; &#xC5EC;&#xBD80;&#xC785;&#xB2C8;&#xB2E4;.</li>
+<li><code>onClick()</code>&#xC740; &#xD560;&#xC77C;&#xC744; &#xB204;&#xB974;&#xBA74; &#xD638;&#xCD9C;&#xD560; &#xCF5C;&#xBC31;&#xC785;&#xB2C8;&#xB2E4;.</li>
+</ul>
+</li>
+<li><strong><code>Footer</code></strong>&#xB294; &#xD45C;&#xC2DC;&#xD560; &#xD560;&#xC77C; &#xD544;&#xD130;&#xB97C; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xBC14;&#xAFC0; &#xC218; &#xC788;&#xB294; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xC785;&#xB2C8;&#xB2E4;.<ul>
+<li><code>filter: string</code>&#xC740; &#xD604;&#xC7AC; &#xD544;&#xD130;&#xC785;&#xB2C8;&#xB2E4;: <code>&apos;SHOW_ALL&apos;</code>, <code>&apos;SHOW_COMPLETED&apos;</code>, <code>&apos;SHOW_ACTIVE&apos;</code>&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
+<li><code>onFilterChange(nextFilter: string)</code>&#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xB2E4;&#xB978; &#xD544;&#xD130;&#xB97C; &#xC120;&#xD0DD;&#xD588;&#xC744; &#xB54C; &#xD638;&#xCD9C;&#xD560; &#xCF5C;&#xBC31;&#xC785;&#xB2C8;&#xB2E4;.</li>
+</ul>
+</li>
+</ul>
+<p>&#xC774;&#xB4E4; &#xBAA8;&#xB450;&#xAC00; &#xC6B0;&#xC9C1;&#xD55C; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xC785;&#xB2C8;&#xB2E4;. &#xC774;&#xB4E4;&#xC740; <strong>&#xC5B4;&#xB514;&#xC5D0;&#xC11C;</strong> &#xB370;&#xC774;&#xD130;&#xAC00; &#xC624;&#xB294;&#xC9C0;&#xB3C4; &#xBAA8;&#xB974;&#xACE0;, <strong>&#xC5B4;&#xB5BB;&#xAC8C;</strong> &#xBC14;&#xAFB8;&#xB294;&#xC9C0;&#xB3C4; &#xBAA8;&#xB985;&#xB2C8;&#xB2E4;. &#xC774;&#xB4E4;&#xC740; &#xC8FC;&#xC5B4;&#xC9C4;&#xB300;&#xB85C; &#xADF8;&#xB824;&#xB0BC; &#xBFD0;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC5EC;&#xB7EC;&#xBD84;&#xC774; Redux&#xC5D0;&#xC11C; &#xB2E4;&#xB978; &#xBB34;&#xC5B8;&#xAC00;&#xB85C; &#xC62E;&#xAE30;&#xB354;&#xB77C;&#xB3C4; &#xC774;&#xB4E4; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB294; &#xADF8;&#xB300;&#xB85C; &#xB458; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB4E4;&#xC740; Redux&#xC5D0; &#xC758;&#xC874;&#xC131;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC774;&#xC81C; &#xC791;&#xC131;&#xD574;&#xBD05;&#xC2DC;&#xB2E4;! &#xC544;&#xC9C1;&#xC740; Redux&#xC5D0; &#xC5B4;&#xB5BB;&#xAC8C; &#xBC14;&#xC778;&#xB4DC;&#xD560;&#xC9C0; &#xC0DD;&#xAC01;&#xD560; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB4E4;&#xC774; &#xC81C;&#xB300;&#xB85C; &#xADF8;&#xB824;&#xB0B4;&#xB294;&#xC9C0; &#xC2E4;&#xD5D8;&#xD558;&#xAE30; &#xC704;&#xD574; &#xAC00;&#xC9DC; &#xB370;&#xC774;&#xD130;&#xB97C; &#xB123;&#xC5B4;&#xBD10;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<h2 id="%EC%9A%B0%EC%A7%81%ED%95%9C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8">&#xC6B0;&#xC9C1;&#xD55C; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;</h2>
+<p>&#xC774;&#xB4E4;&#xC740; &#xBCF4;&#xD1B5;&#xC758; React &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xC774;&#xBBC0;&#xB85C; &#xC790;&#xC138;&#xD55C; &#xC124;&#xBA85;&#xC740; &#xC0DD;&#xB7B5;&#xD558;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<h4 id="-components-addtodo-js"><code>components/AddTodo.js</code></h4>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, { findDOMNode, Component, PropTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddTodo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&apos;text&apos;</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">&apos;input&apos;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{e</span> =&gt;</span> this.handleClick(e)}&gt;
+          Add
+        <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    )</span>;
+  }
+
+  handleClick(e) {
+    <span class="hljs-keyword">const</span> node = findDOMNode(<span class="hljs-keyword">this</span>.refs.input);
+    <span class="hljs-keyword">const</span> text = node.value.trim();
+    <span class="hljs-keyword">this</span>.props.onAddClick(text);
+    node.value = <span class="hljs-string">&apos;&apos;</span>;
+  }
+}
+
+AddTodo.propTypes = {
+  onAddClick: PropTypes.func.isRequired
+};
+</code></pre>
+<h4 id="-components-todo-js"><code>components/Todo.js</code></h4>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, { Component, PropTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Todo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">li</span>
+        <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.props.onClick}</span>
+        <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span>
+          <span class="hljs-attribute">textDecoration:</span> <span class="hljs-attribute">this.props.completed</span> ? &apos;<span class="hljs-attribute">line-through</span>&apos; <span class="hljs-attribute">:</span> &apos;<span class="hljs-attribute">none</span>&apos;,
+          <span class="hljs-attribute">cursor:</span> <span class="hljs-attribute">this.props.completed</span> ? &apos;<span class="hljs-attribute">default</span>&apos; <span class="hljs-attribute">:</span> &apos;<span class="hljs-attribute">pointer</span>&apos;
+        }}&gt;</span>
+        {this.props.text}
+      <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    )</span>;
+  }
+}
+
+Todo.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired
+};
+</code></pre>
+<h4 id="-components-todolist-js"><code>components/TodoList.js</code></h4>
+<pre><code class="lang-js">import React, { Component, PropTypes } from &apos;react&apos;;
+import Todo from &apos;./Todo&apos;;
+
+export default class TodoList extends Component {
+  render() {
+    return (
+      &lt;ul&gt;
+        {this.props.todos.map((todo, index) =&gt;
+          &lt;Todo {...todo}
+                key={index}
+                onClick={() =&gt; this.props.onTodoClick(index)} /&gt;
+        )}
+      &lt;/ul&gt;
+    );
+  }
+}
+
+TodoList.propTypes = {
+  onTodoClick: PropTypes.func.isRequired,
+  todos: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired
+  }).isRequired).isRequired
+};
+</code></pre>
+<h4 id="-components-footer-js"><code>components/Footer.js</code></h4>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, { Component, PropTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  renderFilter(filter, name) {
+    <span class="hljs-keyword">if</span> (filter === <span class="hljs-keyword">this</span>.props.filter) {
+      <span class="hljs-keyword">return</span> name;
+    }
+
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&apos;#&apos;</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{e</span> =&gt;</span> {
+        e.preventDefault();
+        this.props.onFilterChange(filter);
+      }}&gt;
+        {name}
+      <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+    )</span>;
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>
+        Show:
+        {&apos; &apos;}
+        {this.renderFilter(&apos;SHOW_ALL&apos;, &apos;All&apos;)}
+        {&apos;, &apos;}
+        {this.renderFilter(&apos;SHOW_COMPLETED&apos;, &apos;Completed&apos;)}
+        {&apos;, &apos;}
+        {this.renderFilter(&apos;SHOW_ACTIVE&apos;, &apos;Active&apos;)}
+        .
+      <span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+    )</span>;
+  }
+}
+
+Footer.propTypes = {
+  onFilterChange: PropTypes.func.isRequired,
+  filter: PropTypes.oneOf([
+    <span class="hljs-string">&apos;SHOW_ALL&apos;</span>,
+    <span class="hljs-string">&apos;SHOW_COMPLETED&apos;</span>,
+    <span class="hljs-string">&apos;SHOW_ACTIVE&apos;</span>
+  ]).isRequired
+};
+</code></pre>
+<p>&#xB410;&#xC2B5;&#xB2C8;&#xB2E4;! &#xC774;&#xB4E4;&#xC774; &#xC81C;&#xB300;&#xB85C; &#xC791;&#xB3D9;&#xD558;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xAE30; &#xC704;&#xD574; &#xB354;&#xBBF8; <code>App</code>&#xC744; &#xC791;&#xC131;&#xD574; &#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<h4 id="-containers-app-js"><code>containers/App.js</code></h4>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> AddTodo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../components/AddTodo&apos;</span>;
+<span class="hljs-keyword">import</span> TodoList <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../components/TodoList&apos;</span>;
+<span class="hljs-keyword">import</span> Footer <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../components/Footer&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">AddTodo</span>
+          <span class="hljs-attribute">onAddClick</span>=<span class="hljs-value">{text</span> =&gt;</span>
+            console.log(&apos;add todo&apos;, text)
+          } /&gt;
+        <span class="hljs-tag">&lt;<span class="hljs-title">TodoList</span>
+          <span class="hljs-attribute">todos</span>=<span class="hljs-value">{[{</span>
+            <span class="hljs-attribute">text:</span> &apos;<span class="hljs-attribute">Use</span> <span class="hljs-attribute">Redux</span>&apos;,
+            <span class="hljs-attribute">completed:</span> <span class="hljs-attribute">true</span>
+          }, {
+            <span class="hljs-attribute">text:</span> &apos;<span class="hljs-attribute">Learn</span> <span class="hljs-attribute">to</span> <span class="hljs-attribute">connect</span> <span class="hljs-attribute">it</span> <span class="hljs-attribute">to</span> <span class="hljs-attribute">React</span>&apos;,
+            <span class="hljs-attribute">completed:</span> <span class="hljs-attribute">false</span>
+          }]}
+          <span class="hljs-attribute">onTodoClick</span>=<span class="hljs-value">{todo</span> =&gt;</span>
+            console.log(&apos;todo clicked&apos;, todo)
+          } /&gt;
+        <span class="hljs-tag">&lt;<span class="hljs-title">Footer</span>
+          <span class="hljs-attribute">filter</span>=<span class="hljs-value">&apos;SHOW_ALL&apos;</span>
+          <span class="hljs-attribute">onFilterChange</span>=<span class="hljs-value">{filter</span> =&gt;</span>
+            console.log(&apos;filter change&apos;, filter)
+          } /&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    )</span>;
+  }
+}
+</code></pre>
+<p><code>&lt;App /&gt;</code>&#xC740; &#xC774;&#xB807;&#xAC8C; &#xD45C;&#xD604;&#xB429;&#xB2C8;&#xB2E4;:</p>
+<p><img src="http://i.imgur.com/lj4QTfD.png" width="40%"></p>
+<p>&#xC774; &#xC790;&#xCCB4;&#xB85C;&#xB294; &#xBCC4;&#xB85C; &#xD765;&#xBBF8;&#xB85C;&#xC6B8;&#xAC8C; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xC81C; Redux&#xC640; &#xC5F0;&#xACB0;&#xD574;&#xBD05;&#xC2DC;&#xB2E4;!</p>
+<h2 id="redux%EC%99%80-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0">Redux&#xC640; &#xC5F0;&#xACB0;&#xD558;&#xAE30;</h2>
+<p>&#xC6B0;&#xB9AC;&#xC758; <code>App</code> &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB97C; Redux&#xC640; &#xC5F0;&#xACB0;&#xD574;&#xC11C; &#xC561;&#xC158;&#xC744; &#xBCF4;&#xB0B4;&#xACE0; &#xC0C1;&#xD0DC;&#xB97C; &#xC77D;&#xAE30; &#xC704;&#xD574; &#xB450; &#xAC00;&#xC9C0;&#xB97C; &#xBCC0;&#xACBD;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xBA3C;&#xC800;, &#xC544;&#xAE4C; &#xC124;&#xCE58;&#xD55C; <a href="http://github.com/gaearon/react-redux" target="_blank"><code>react-redux</code></a>&#xC5D0;&#xC11C; <code>Provider</code>&#xB97C; &#xBD88;&#xB7EC;&#xC640;&#xC11C;, <strong><code>&lt;Provider&gt;</code>&#xB85C; &#xB8E8;&#xD2B8; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB97C; &#xAC10;&#xC2F8;&#xC90D;&#xC2DC;&#xB2E4;</strong>.</p>
+<h4 id="-index-js"><code>index.js</code></h4>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> { createStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux&apos;</span>;
+<span class="hljs-keyword">import</span> { Provider } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-redux&apos;</span>;
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./containers/App&apos;</span>;
+<span class="hljs-keyword">import</span> todoApp <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./reducers&apos;</span>;
+
+<span class="hljs-keyword">let</span> store = createStore(todoApp);
+
+<span class="hljs-keyword">let</span> rootElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;root&apos;</span>);
+React.render(
+  <span class="hljs-comment">// React 0.13&#xC758; &#xC774;&#xC288;&#xB97C; &#xD68C;&#xD53C;&#xD558;&#xAE30; &#xC704;&#xD574; </span>
+  <span class="hljs-comment">// &#xBC18;&#xB4DC;&#xC2DC; &#xD568;&#xC218;&#xB85C; &#xAC10;&#xC2F8;&#xC90D;&#xB2C8;&#xB2E4;.</span>
+  &lt;Provider store={store}&gt;
+    {() =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">App</span> /&gt;</span>}
+  <span class="hljs-tag">&lt;/<span class="hljs-title">Provider</span>&gt;</span>,
+  rootElement
+);
+</span></code></pre>
+<p>&#xC774;&#xB807;&#xAC8C; &#xD558;&#xBA74; &#xC548;&#xC758; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xAC00; &#xC6B0;&#xB9AC;&#xC758; &#xC2A4;&#xD1A0;&#xC5B4; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.(&#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C; &#xC774;&#xB294; React&#xC758; <a href="http://www.youtube.com/watch?v=H7vlH-wntD4" target="_blank">&#xBB38;&#xC11C;&#xD654;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#x201C;context&#x201D; &#xAE30;&#xB2A5;</a>)&#xC5D0; &#xC758;&#xD574; &#xAC00;&#xB2A5;&#xD558;&#xC9C0;&#xB9CC; API&#xC5D0; &#xC9C1;&#xC811;&#xC801;&#xC73C;&#xB85C; &#xB178;&#xCD9C;&#xB418;&#xC9C0; &#xC54A;&#xC73C;&#xB2C8; &#xAC71;&#xC815; &#xC54A;&#xC73C;&#xC154;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;.)</p>
+<p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; <strong>Redux&#xC640; &#xC5F0;&#xACB0;&#xD558;&#xACE0; &#xC2F6;&#xC740; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB97C; <a href="http://github.com/gaearon/react-redux" target="_blank"><code>react-redux</code></a>&#xC758; <code>connect()</code> &#xD568;&#xC218;&#xB85C; &#xAC10;&#xC2F8;&#xC90D;&#xC2DC;&#xB2E4;</strong>. &#xAC00;&#xB2A5;&#xD55C; &#xCD5C;&#xC0C1;&#xC704; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB098; &#xB77C;&#xC6B0;&#xD2B8; &#xD578;&#xB4E4;&#xB7EC;&#xB9CC; &#xC774;&#xB807;&#xAC8C; &#xD574;&#xC8FC;&#xC138;&#xC694;. &#xAE30;&#xC220;&#xC801;&#xC73C;&#xB85C;&#xB294; &#xC5B4;&#xB5A4; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB4E0;&#xC9C0; Redux &#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0; <code>connect()</code> &#xD560; &#xC218; &#xC788;&#xC9C0;&#xB9CC;, &#xB108;&#xBB34; &#xAE4A;&#xC774; &#xC5F0;&#xACB0;&#xD558;&#xBA74; &#xB370;&#xC774;&#xD130; &#xD750;&#xB984;&#xC744; &#xCD94;&#xC801;&#xD558;&#xAE30;&#xAC00; &#xC5B4;&#xB824;&#xC6CC;&#xC9D1;&#xB2C8;&#xB2E4;.</p>
+<p><strong><code>connect()</code> &#xD638;&#xCD9C;&#xB85C; &#xAC10;&#xC2F8;&#xC9C4; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB294; <a href="../api/Store.html#dispatch"><code>dispatch</code></a> &#xD568;&#xC218;&#xB97C; prop&#xC73C;&#xB85C; &#xBC1B;&#xAC8C; &#xB418;&#xACE0;, &#xD544;&#xC694;&#xD55C; &#xC0C1;&#xD0DC;&#xB294; &#xC804;&#xC5ED; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; &#xAC00;&#xC838;&#xC624;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</strong> <code>connect()</code>&#xC758; &#xC720;&#xC77C;&#xD55C; &#xC778;&#xC218;&#xB294; <strong>selector</strong>&#xB77C;&#xACE0; &#xBD80;&#xB97C; &#xD568;&#xC218; &#xD558;&#xB098;&#xBFD0;&#xC785;&#xB2C8;&#xB2E4;. &#xC774; &#xD568;&#xC218;&#xB294; &#xC804;&#xC5ED; Redux &#xC2A4;&#xD1A0;&#xC5B4;&#xC758; &#xC0C1;&#xD0DC;&#xB97C; &#xBC1B;&#xC544;&#xC11C; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xAC00; &#xD544;&#xC694;&#xB85C; &#xD558;&#xB294; props&#xB97C; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;. &#xAC00;&#xC7A5; &#xAC04;&#xB2E8;&#xD558;&#xAC8C;&#xB294; &#xBC1B;&#xC740; <code>state</code>&#xB97C; &#xADF8;&#xB300;&#xB85C; &#xBC18;&#xD658;&#xD560;&#xC218;&#xB3C4; &#xC788;&#xACA0;&#xC9C0;&#xB9CC; &#xC544;&#xB9C8;&#xB3C4; &#xC0C1;&#xD0DC;&#xB97C; &#xBC18;&#xD658;&#xD558;&#xAE30; &#xC804;&#xC5D0; &#xBCC0;&#xD658;&#xD558;&#xACE0; &#xC2F6;&#xC744;&#xAC81;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC870;&#xD569; &#xAC00;&#xB2A5;&#xD55C; &#xC140;&#xB809;&#xD130;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xBCC0;&#xD658;&#xC744; &#xBA54;&#xBAA8;&#xC774;&#xC988;&#xD558;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74; <a href="https://github.com/faassen/reselect" target="_blank">reselect</a>&#xB97C; &#xC54C;&#xC544;&#xBCF4;&#xC138;&#xC694;. &#xC774; &#xC608;&#xC81C;&#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xC9C0;&#xB9CC;, &#xB354; &#xD070; &#xC571;&#xC5D0;&#xC11C;&#xB294; &#xC798; &#xC791;&#xB3D9;&#xD560;&#xAC81;&#xB2C8;&#xB2E4;.</p>
+<h4 id="-containers-app-js"><code>containers/App.js</code></h4>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, { Component, PropTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-redux&apos;</span>;
+<span class="hljs-keyword">import</span> { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../actions&apos;</span>;
+<span class="hljs-keyword">import</span> AddTodo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../components/AddTodo&apos;</span>;
+<span class="hljs-keyword">import</span> TodoList <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../components/TodoList&apos;</span>;
+<span class="hljs-keyword">import</span> Footer <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../components/Footer&apos;</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-comment">// connect() &#xD638;&#xCD9C;&#xC744; &#xD1B5;&#xD574; &#xC8FC;&#xC785;&#xB428;:</span>
+    <span class="hljs-keyword">const</span> { dispatch, visibleTodos, visibilityFilter } = <span class="hljs-keyword">this</span>.props;
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">AddTodo</span>
+          <span class="hljs-attribute">onAddClick</span>=<span class="hljs-value">{text</span> =&gt;</span>
+            dispatch(addTodo(text))
+          } /&gt;
+        <span class="hljs-tag">&lt;<span class="hljs-title">TodoList</span>
+          <span class="hljs-attribute">todos</span>=<span class="hljs-value">{visibleTodos}</span>
+          <span class="hljs-attribute">onTodoClick</span>=<span class="hljs-value">{index</span> =&gt;</span>
+            dispatch(completeTodo(index))
+          } /&gt;
+        <span class="hljs-tag">&lt;<span class="hljs-title">Footer</span>
+          <span class="hljs-attribute">filter</span>=<span class="hljs-value">{visibilityFilter}</span>
+          <span class="hljs-attribute">onFilterChange</span>=<span class="hljs-value">{nextFilter</span> =&gt;</span>
+            dispatch(setVisibilityFilter(nextFilter))
+          } /&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    )</span>;
+  }
+}
+
+App.propTypes = {
+  visibleTodos: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired
+  })),
+  visibilityFilter: PropTypes.oneOf([
+    <span class="hljs-string">&apos;SHOW_ALL&apos;</span>,
+    <span class="hljs-string">&apos;SHOW_COMPLETED&apos;</span>,
+    <span class="hljs-string">&apos;SHOW_ACTIVE&apos;</span>
+  ]).isRequired
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">selectTodos</span>(<span class="hljs-params">todos, filter</span>) </span>{
+  <span class="hljs-keyword">switch</span> (filter) {
+  <span class="hljs-keyword">case</span> VisibilityFilters.SHOW_ALL:
+    <span class="hljs-keyword">return</span> todos;
+  <span class="hljs-keyword">case</span> VisibilityFilters.SHOW_COMPLETED:
+    <span class="hljs-keyword">return</span> todos.filter(todo =&gt; todo.completed);
+  <span class="hljs-keyword">case</span> VisibilityFilters.SHOW_ACTIVE:
+    <span class="hljs-keyword">return</span> todos.filter(todo =&gt; !todo.completed);
+  }
+}
+
+<span class="hljs-comment">// &#xC8FC;&#xC5B4;&#xC9C4; &#xC804;&#xC5ED; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; &#xC5B4;&#xB5A4; props&#xB97C; &#xC8FC;&#xC785;&#xD558;&#xAE30;&#xB97C; &#xC6D0;&#xD558;&#xB098;&#xC694;?</span>
+<span class="hljs-comment">// &#xB178;&#xD2B8;: &#xB354; &#xB098;&#xC740; &#xC131;&#xB2A5;&#xC744; &#xC704;&#xD574;&#xC11C;&#xB294; https://github.com/faassen/reselect &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC138;&#xC694;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">select</span>(<span class="hljs-params">state</span>) </span>{
+  <span class="hljs-keyword">return</span> {
+    visibleTodos: selectTodos(state.todos, state.visibilityFilter),
+    visibilityFilter: state.visibilityFilter
+  };
+}
+
+<span class="hljs-comment">// &#xB514;&#xC2A4;&#xD328;&#xCE58;&#xC640; &#xC0C1;&#xD0DC;&#xB97C; &#xC8FC;&#xC785;&#xD558;&#xB824;&#xB294; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB97C; &#xAC10;&#xC2F8;&#xC90D;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(select)(App);
+</code></pre>
+<p>&#xB410;&#xC2B5;&#xB2C8;&#xB2E4;! &#xD560;&#xC77C; &#xC571;&#xC740; &#xC774;&#xC81C; &#xC81C;&#xB300;&#xB85C; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h2 id="%EB%8B%A4%EC%9D%8C-%EB%8B%A8%EA%B3%84">&#xB2E4;&#xC74C; &#xB2E8;&#xACC4;</h2>
+<p>&#xBC30;&#xC6B4; &#xC9C0;&#xC2DD;&#xC744; &#xB354; &#xC798; &#xC18C;&#xD654;&#xD558;&#xB824;&#xBA74; <a href="ExampleTodoList.html">&#xC774; &#xD29C;&#xD1A0;&#xB9AC;&#xC5BC;&#xC758; &#xC804;&#xCCB4; &#xC18C;&#xC2A4;&#xCF54;&#xB4DC;</a>&#xB97C; &#xC77D;&#xC5B4;&#xBCF4;&#xC138;&#xC694;. &#xADF8;&#xB7F0; &#xB2E4;&#xC74C; <a href="../advanced/index.html">&#xC2EC;&#xD654; &#xD29C;&#xD1A0;&#xB9AC;&#xC5BC;</a>&#xC5D0;&#xC11C; &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xC694;&#xCCAD;&#xACFC; &#xB77C;&#xC6B0;&#xD305;&#xC744; &#xC5B4;&#xB5BB;&#xAC8C; &#xCC98;&#xB9AC;&#xD558;&#xB294;&#xC9C0; &#xBC30;&#xC6CC;&#xBD05;&#xC2DC;&#xB2E4;!</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../docs_kr/basics/DataFlow.html" class="navigation navigation-prev " aria-label="Previous page: 데이터 흐름"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../docs_kr/basics/ExampleTodoList.html" class="navigation navigation-next " aria-label="Next page: 예시: Todo List"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"edit-link":{"base":"https://github.com/dobbit/redux/tree/master","label":"Edit This Page"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
