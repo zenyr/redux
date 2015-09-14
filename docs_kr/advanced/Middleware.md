@@ -150,7 +150,7 @@ patchStoreToAddCrashReporting(store);
 function logger(store) {
   let next = store.dispatch;
 
-  // Previously:
+  // 앞에서:
   // store.dispatch = function dispatchAndLog(action) {
 
   return function dispatchAndLog(action) {
@@ -161,14 +161,14 @@ function logger(store) {
   };
 }
 ```
-Redux 안에 실제 몽키패칭을 적용할 수 있게 돕는 핼퍼를 제공할 수 있습니다:
+Redux 안에 실제 몽키패칭을 적용할 수 있게 돕는 헬퍼를 제공할 수 있습니다:
 
 ```js
 function applyMiddlewareByMonkeypatching(store, middlewares) {
   middlewares = middlewares.slice();
   middlewares.reverse();
 
-  // Transform dispatch function with each middleware.
+  // 각각의 미들웨어로 디스패치 함수를 변환합니다.
   middlewares.forEach(middleware =>
     store.dispatch = middleware(store)
   );
@@ -190,7 +190,7 @@ applyMiddlewareByMonkeypatching(store, [logger, crashReporter]);
 
 ```js
 function logger(store) {
-  // Must point to the function returned by the previous middleware:
+  // 반드시 앞의 미들웨어에 의해 반환된 함수를 가리켜야 합니다:
   let next = store.dispatch;
 
   return function dispatchAndLog(action) {
@@ -278,7 +278,7 @@ Redux에 포함되어 나오는 [`applyMiddleware()`](../api/applyMiddleware.md)
 
 * 여러분이 미들웨어 안에서 `next(action)`대신 `store.dispatch(action)`를 호출할 경우 액션이 현재 미들웨어를 포함한 전체 미들웨어 체인을 다시 따라가도록 꼼수를 써뒀습니다. 이건 [나중에](AsyncActions.md) 볼 비동기 미들웨어에서 유용합니다.
 
-* 여러분이 미들웨어를 한번만 적용했는지 확인하기 위해, `store` 자체보다는 `createStore()`상에서 작동합니다. 그래서 용법은 `(store, middlewares) => store` 대신 `(...middlewares) => (createStore) => createStore`입니다.
+* 여러분이 미들웨어를 한번만 적용하도록 하기 위해, `store` 자체보다는 `createStore()`상에서 작동합니다. 그래서 용법은 `(store, middlewares) => store` 대신 `(...middlewares) => (createStore) => createStore`입니다.
 
 ### 최종적인 접근
 
@@ -313,11 +313,11 @@ const crashReporter = store => next => action => {
 ```js
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-// applyMiddleware takes createStore() and returns
-// a function with a compatible API.
+// applyMiddleware 는 createStore()를 받아서 
+// 호환되는 API를 가진 함수를 반환합니다.
 let createStoreWithMiddleware = applyMiddleware(logger, crashReporter)(createStore);
 
-// Use it like you would use createStore()
+// 이것을 createStore()처럼 사용하면 됩니다.
 let todoApp = combineReducers(reducers);
 let store = createStoreWithMiddleware(todoApp);
 ```
@@ -325,7 +325,7 @@ let store = createStoreWithMiddleware(todoApp);
 됐습니다! 이제 스토어 인스턴스로 전달되는 모든 액션은 `logger`와 `crashReporter`를 지납니다:
 
 ```js
-// Will flow through both logger and crashReporter middleware!
+// 흐름이 logger와 crashRepoter 미들웨어 둘 다 지나가게 됩니다!
 store.dispatch(addTodo('Use Redux'));
 ```
 
